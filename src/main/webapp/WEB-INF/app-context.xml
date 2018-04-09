@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+	   xmlns:mvc="http://www.springframework.org/schema/mvc"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
+	   http://www.springframework.org/schema/beans/spring-beans.xsd
+	   http://www.springframework.org/schema/context
+	   http://www.springframework.org/schema/context/spring-context.xsd
+	   http://www.springframework.org/schema/mvc
+	   http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+	<context:component-scan base-package="com.alex"/>
+	<mvc:view-controller path="/" view-name="welcome"/>
+
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+		<property name="prefix" value="/WEB-INF/views/"/>
+		<property name="suffix" value=".jsp"/>
+	</bean>
+
+	<alias name="defaultUserDAO" alias="userDAO"/>
+	<bean id="defaultUserDAO" class="com.alex.daos.impl.DefaultUserDAO"/>
+
+	<alias name="defaultUserFacade" alias="userFacade"/>
+	<bean id="defaultUserFacade" class="com.alex.facades.impl.DefaultUserFacade">
+		<property name="userDAO" ref="userDAO"/>
+	</bean>
+
+	<alias name="defaultUserService" alias="userService"/>
+	<bean id="defaultUserService" class="com.alex.services.impl.DefaultUserService">
+		<property name="userFacade" ref="userFacade"/>
+	</bean>
+
+	<mvc:annotation-driven/>
+
+</beans>

@@ -1,0 +1,25 @@
+package com.alex.services.impl;
+
+import com.alex.facades.UserFacade;
+import com.alex.models.User;
+import com.alex.services.UserService;
+import org.springframework.beans.factory.annotation.Required;
+
+import java.util.List;
+
+/**
+ * Created by Shishkov A.V. on 09.04.18.
+ */
+public class DefaultUserService implements UserService {
+	private UserFacade userFacade;
+
+	@Required
+	public void setUserFacade(UserFacade userFacade) {
+		this.userFacade = userFacade;
+	}
+
+	@Override
+	public List<User> getUsers() {
+		return userFacade.getUsers();
+	}
+}
