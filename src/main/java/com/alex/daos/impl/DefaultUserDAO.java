@@ -3,6 +3,7 @@ package com.alex.daos.impl;
 import com.alex.daos.UserDAO;
 import com.alex.models.User;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -11,13 +12,19 @@ import java.util.List;
  */
 public class DefaultUserDAO implements UserDAO {
 
+	private List<User> users = new LinkedList<>(Arrays.asList(
+			new User("Alex", 30, "Russia"),
+			new User("Kent", 35, "USA"),
+			new User("Mark", 20, "Israel"),
+			new User("Hanna", 25, "Germany")));
+
 	@Override
 	public List<User> getUsers() {
-		List<User> users = new LinkedList<>();
-		users.add(new User("Alex", 30, "Russia"));
-		users.add(new User("Kent", 35, "USA"));
-		users.add(new User("Mark", 20, "Israel"));
-		users.add(new User("Hanna", 25, "Germany"));
 		return users;
+	}
+
+	@Override
+	public void addUser(User user) {
+		users.add(user);
 	}
 }

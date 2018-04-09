@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%--
   Created by IntelliJ IDEA.
   User: alexeyshishkov
@@ -33,6 +34,11 @@
 		</tr>
 	</c:forEach>
 	</tbody>
+	<a href="/users/newUser">
+		<div>
+			<p>Add new</p>
+		</div>
+	</a>
 </table>
 </body>
 </html>

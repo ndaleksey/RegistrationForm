@@ -33,5 +33,4 @@
 	</bean>
 
 	<mvc:annotation-driven/>
-
 </beans>

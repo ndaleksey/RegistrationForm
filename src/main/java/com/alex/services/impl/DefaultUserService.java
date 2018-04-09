@@ -22,4 +22,9 @@ public class DefaultUserService implements UserService {
 	public List<User> getUsers() {
 		return userFacade.getUsers();
 	}
+
+	@Override
+	public void addUser(User user) {
+		userFacade.addUser(user);
+	}
 }

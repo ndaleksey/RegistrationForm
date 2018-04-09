@@ -9,4 +9,6 @@ import java.util.List;
  */
 public interface UserFacade {
 	List<User> getUsers();
+
+	void addUser(User user);
 }
