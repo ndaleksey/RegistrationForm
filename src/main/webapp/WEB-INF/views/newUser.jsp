@@ -12,18 +12,23 @@
 	<title>New User Form</title>
 </head>
 <body>
+
+
 <form:form method="post" modelAttribute="user" action="newUser">
-	<b>Name:</b>
-	<form:input path="name"/>
-	</br>
-
-	<b>Age:</b>
-	<form:input path="age"/>
-	</br>
-
-	<b>Country:</b>
-	<form:input path="country"/>
-	</br>
+	<table>
+		<tr>
+			<td><b>Name:</b></td>
+			<td><form:input path="name"/></td>
+		</tr>
+		<tr>
+			<td><b>Age:</b></td>
+			<td><form:input path="age"/></td>
+		</tr>
+		<tr>
+			<td><b>Country:</b></td>
+			<td><form:input path="country"/></td>
+		</tr>
+	</table>
 
 	<form:button name="AddUser" value="Add">Add</form:button>
 </form:form>
