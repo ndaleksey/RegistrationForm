@@ -11,4 +11,6 @@ public interface UserService {
 	List<User> getUsers();
 
 	void addUser(User user);
+
+	void addUsers(List<User> users);
 }

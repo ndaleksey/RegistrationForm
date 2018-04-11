@@ -1,14 +1,25 @@
 package com.alex.models;
 
+import javax.persistence.*;
 import java.util.UUID;
 
 /**
  * Created by Shishkov A.V. on 09.04.18.
  */
+@Entity
+@Table(name = "User", catalog = "AutoShop")
 public class User {
+
+	@Id
 	private UUID id;
+
+	@Column(name = "name")
 	private String name;
+
+	@Column(name = "age")
 	private int age;
+
+	@Column(name = "country")
 	private String country;
 
 	public UUID getId() {

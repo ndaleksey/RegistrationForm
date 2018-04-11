@@ -39,11 +39,6 @@ public class UserController {
 		return "newUser";
 	}
 
-	/*@RequestMapping(value = "/newUser", method = RequestMethod.GET)
-	public String showUserForm(@ModelAttribute(name = "user") User user) {
-		return "newUser";
-	}*/
-
 	@RequestMapping(value = "/newUser", method = RequestMethod.POST)
 	public String addNewUser(@ModelAttribute(name = "user") User user) {
 		userService.addUser(user);
