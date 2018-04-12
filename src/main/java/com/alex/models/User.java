@@ -1,47 +1,42 @@
 package com.alex.models;
 
 import javax.persistence.*;
+import java.util.Objects;
 import java.util.UUID;
 
 /**
- * Created by Shishkov A.V. on 09.04.18.
+ * Created by Shishkov A.V. on 12.04.18.
  */
 @Entity
-@Table(name = "User", catalog = "AutoShop")
+@Table(name = "User", schema = "AutoShop")
 public class User {
-
-	@Id
 	private UUID id;
-
-	@Column(name = "name")
+	private Integer age;
+	private String country;
 	private String name;
 
-	@Column(name = "age")
-	private int age;
-
-	@Column(name = "country")
-	private String country;
-
+	@Id
+	@Column(name = "id")
 	public UUID getId() {
 		return id;
 	}
 
-	public String getName() {
-		return name;
+	public void setId(UUID id) {
+		this.id = id;
 	}
 
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public int getAge() {
+	@Basic
+	@Column(name = "age")
+	public Integer getAge() {
 		return age;
 	}
 
-	public void setAge(int age) {
+	public void setAge(Integer age) {
 		this.age = age;
 	}
 
+	@Basic
+	@Column(name = "country")
 	public String getCountry() {
 		return country;
 	}
@@ -50,14 +45,43 @@ public class User {
 		this.country = country;
 	}
 
-	public User() {
-		this.id = UUID.randomUUID();
+	@Basic
+	@Column(name = "name")
+	public String getName() {
+		return name;
 	}
 
-	public User(String name, int age, String country) {
-		this();
+	public void setName(String name) {
 		this.name = name;
+	}
+
+	public User() {
+		id = UUID.randomUUID();
+	}
+
+	public User(String name, Integer age, String country) {
+		this();
 		this.age = age;
 		this.country = country;
+		this.name = name;
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		User that = (User) o;
+		return id == that.id &&
+				Objects.equals(age, that.age) &&
+				Objects.equals(country, that.country) &&
+				Objects.equals(name, that.name);
+	}
+
+	@Override
+	public int hashCode() {
+
+		int result = Objects.hash(age, country, name);
+		result = 31 * result + id.hashCode();
+		return result;
 	}
 }

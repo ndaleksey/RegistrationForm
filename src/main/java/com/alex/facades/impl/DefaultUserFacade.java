@@ -28,4 +28,9 @@ public class DefaultUserFacade implements UserFacade {
 	public void addUser(User user) {
 		userDAO.addUser(user);
 	}
+
+	@Override
+	public void addUsers(List<User> users) {
+		userDAO.addUsers(users);
+	}
 }

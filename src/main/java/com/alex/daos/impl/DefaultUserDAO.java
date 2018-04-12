@@ -7,9 +7,6 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import javax.swing.*;
-import java.util.Arrays;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -24,12 +21,11 @@ public class DefaultUserDAO implements UserDAO {
 		return sessionFactory;
 	}
 
-
-
 	@Override
 	public List<User> getUsers() {
 //		List<User> users = new LinkedList<>();
 		Session session = sessionFactory.getCurrentSession();
+
 		List<User> users = session.createQuery("from User").list();
 
 		return users;
@@ -48,7 +44,7 @@ public class DefaultUserDAO implements UserDAO {
 
 		for (User user : users) {
 
-			session.createQuery("insert into User(id, name, age, country) values(user.)");
+//			session.createQuery("insert into User(id, name, age, country)");
 		}
 		session.close();
 

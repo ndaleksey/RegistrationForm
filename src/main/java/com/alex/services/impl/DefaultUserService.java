@@ -33,6 +33,6 @@ public class DefaultUserService implements UserService {
 	@Transactional
 	@Override
 	public void addUsers(List<User> users) {
-		userFacade.addUsers();
+		userFacade.addUsers(users);
 	}
 }
