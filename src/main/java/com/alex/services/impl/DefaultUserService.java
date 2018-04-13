@@ -5,7 +5,6 @@ import com.alex.models.User;
 import com.alex.services.UserService;
 import org.springframework.beans.factory.annotation.Required;
 
-import javax.transaction.Transactional;
 import java.util.List;
 
 /**
@@ -24,13 +23,11 @@ public class DefaultUserService implements UserService {
 		return userFacade.getUsers();
 	}
 
-	@Transactional
 	@Override
 	public void addUser(User user) {
 		userFacade.addUser(user);
 	}
 
-	@Transactional
 	@Override
 	public void addUsers(List<User> users) {
 		userFacade.addUsers(users);

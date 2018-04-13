@@ -6,12 +6,16 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 /**
  * Created by Shishkov A.V. on 09.04.18.
  */
+@Repository
+@Transactional
 public class DefaultUserDAO implements UserDAO {
 
 	@Autowired
@@ -40,13 +44,12 @@ public class DefaultUserDAO implements UserDAO {
 	@Override
 	public void addUsers(List<User> users) {
 		Session session = sessionFactory.getCurrentSession();
-		Transaction transaction = session.beginTransaction();
 
 		for (User user : users) {
 
 //			session.createQuery("insert into User(id, name, age, country)");
 		}
-		session.close();
+//		session.close();
 
 	}
 }

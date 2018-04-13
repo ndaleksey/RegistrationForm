@@ -1,8 +1,8 @@
 <?xml version='1.0' encoding='utf-8'?>
 <hibernate-configuration xmlns="http://www.hibernate.org/xsd/hibernate-configuration">
 	<session-factory>
-		<property name="connection.url"/>
-		<property name="connection.driver_class"/>
+		<property name="connection.url"></property>
+		<property name="connection.driver_class"></property>
 
 		<!-- <property name="connection.username"/> -->
 		<!-- <property name="connection.password"/> -->
