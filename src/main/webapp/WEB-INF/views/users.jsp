@@ -26,14 +26,19 @@
 	</thead>
 	<tbody>
 	<c:forEach items="${users}" var="user">
-		<tr>
-			<td><c:out value="${user.id}"/></td>
-			<td><c:out value="${user.name}"/></td>
-			<td><c:out value="${user.age}"/></td>
-			<td><c:out value="${user.country}"/></td>
-		</tr>
+		<form:form method="get" action="/users/editUser" modelAttribute="currentUser">
+			<tr>
+				<td><c:out value="${user.id}"/></td>
+				<td><c:out value="${user.name}"/></td>
+				<td><c:out value="${user.age}"/></td>
+				<td><c:out value="${user.country}"/></td>
+
+				<td><input type="submit" value="Edit"/></td>
+			</tr>
+		</form:form>
 	</c:forEach>
 	</tbody>
+
 	<a href="/users/newUser">
 		<div>
 			<p>Add new</p>

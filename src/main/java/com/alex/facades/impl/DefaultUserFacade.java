@@ -33,4 +33,9 @@ public class DefaultUserFacade implements UserFacade {
 	public void addUsers(List<User> users) {
 		userDAO.addUsers(users);
 	}
+
+	@Override
+	public void updateUser(User user) {
+		userDAO.updateUser(user);
+	}
 }

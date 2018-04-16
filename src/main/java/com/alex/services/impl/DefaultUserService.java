@@ -32,4 +32,9 @@ public class DefaultUserService implements UserService {
 	public void addUsers(List<User> users) {
 		userFacade.addUsers(users);
 	}
+
+	@Override
+	public void updateUser(User user) {
+		userFacade.updateUser(user);
+	}
 }

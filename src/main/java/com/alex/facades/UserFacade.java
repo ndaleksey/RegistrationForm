@@ -13,4 +13,6 @@ public interface UserFacade {
 	void addUser(User user);
 
 	void addUsers(List<User> users);
+
+	void updateUser(User user);
 }

@@ -42,4 +42,9 @@ public class DefaultUserDAO implements UserDAO {
 			session.save(user);
 		}
 	}
+
+	@Override
+	public void updateUser(User user) {
+
+	}
 }
