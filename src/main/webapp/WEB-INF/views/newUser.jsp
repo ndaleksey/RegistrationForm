@@ -13,7 +13,6 @@
 </head>
 <body>
 
-
 <form:form method="post" modelAttribute="user" action="newUser">
 	<table>
 		<tr>
