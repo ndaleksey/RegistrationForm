@@ -64,9 +64,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public String searchUsers(Model model, HttpServletRequest request){
-		String name = request.getParameter("name");
-		model.addAttribute("name", name);
+	public String searchUsers(Model model, String name){
 		model.addAttribute(userService.findUsersByName(name));
 		return "users/search";
 	}
