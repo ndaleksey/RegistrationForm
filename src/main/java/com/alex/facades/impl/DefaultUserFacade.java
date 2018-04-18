@@ -6,6 +6,7 @@ import com.alex.models.User;
 import org.springframework.beans.factory.annotation.Required;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by Shishkov A.V. on 09.04.18.
@@ -42,5 +43,10 @@ public class DefaultUserFacade implements UserFacade {
 	@Override
 	public List<User> findUsersByName(String name) {
 		return userDAO.getUsersByName(name);
+	}
+
+	@Override
+	public User findUserById(UUID userId) {
+		return userDAO.getUserById(userId);
 	}
 }

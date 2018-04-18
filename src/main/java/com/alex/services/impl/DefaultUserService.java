@@ -6,6 +6,7 @@ import com.alex.services.UserService;
 import org.springframework.beans.factory.annotation.Required;
 
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by Shishkov A.V. on 09.04.18.
@@ -41,5 +42,10 @@ public class DefaultUserService implements UserService {
 	@Override
 	public List<User> findUsersByName(String name) {
 		return userFacade.findUsersByName(name);
+	}
+
+	@Override
+	public User findUserById(UUID userId) {
+		return userFacade.findUserById(userId);
 	}
 }

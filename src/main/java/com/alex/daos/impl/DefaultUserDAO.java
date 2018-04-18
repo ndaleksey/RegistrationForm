@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Created by Shishkov A.V. on 09.04.18.
@@ -57,5 +58,14 @@ public class DefaultUserDAO implements UserDAO {
 		if (condition) query.setParameter("name", name);
 		List<User> result = query.list();
 		return result;
+	}
+
+	@Override
+	public User getUserById(UUID userId) {
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery("from User where id = :id");
+		query.setParameter("id", userId);
+		List<User> users = query.list();
+		return users.size() > 0 ? users.get(0) : null;
 	}
 }

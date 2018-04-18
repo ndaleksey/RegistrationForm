@@ -12,6 +12,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.UUID;
 
 /**
  * Created by Shishkov A.V. on 09.04.18.
@@ -45,7 +46,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/editUser", method = RequestMethod.POST)
-	public String handleInsertNewUser(HttpServletRequest request, HttpSession session){
+	public String handleInsertNewUser(HttpServletRequest request, HttpSession session) {
 		return "redirect:/users";
 	}
 
@@ -57,15 +58,22 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/editUser", method = RequestMethod.GET)
-	public String editUser(@ModelAttribute(name = "currentUser") User user, ModelMap modelMap, @RequestParam RequestParam param){
+	public String editUser(@ModelAttribute(name = "currentUser") User user, ModelMap modelMap, @RequestParam RequestParam param) {
 
 		modelMap.addAttribute("user", user);
 		return "newUser";
 	}
 
 	@RequestMapping(value = "/search", method = RequestMethod.GET)
-	public String searchUsers(Model model, String name){
+	public String searchUsers(Model model, String name) {
 		model.addAttribute(userService.findUsersByName(name));
 		return "users/search";
+	}
+
+	@RequestMapping(value = "/detail/{userId}")
+	public String showUserDetails(@PathVariable("userId") UUID userId, Model model) {
+		User user = userService.findUserById(userId);
+		model.addAttribute(user);
+		return "users/detail";
 	}
 }
