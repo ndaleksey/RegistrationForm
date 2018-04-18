@@ -1,17 +1,11 @@
-import org.hibernate.HibernateException;
-import org.hibernate.Metamodel;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
-
-import javax.persistence.metamodel.EntityType;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 /**
  * Created by Shishkov A.V. on 12.04.18.
  */
 public class Main {
-	private static final SessionFactory ourSessionFactory;
+	/*private static final SessionFactory ourSessionFactory;
 
 	static {
 		try {
@@ -26,10 +20,12 @@ public class Main {
 
 	public static Session getSession() throws HibernateException {
 		return ourSessionFactory.openSession();
-	}
+	}*/
 
 	public static void main(final String[] args) throws Exception {
-		final Session session = getSession();
+		System.out.println(getProgrammersDay());
+
+		/*final Session session = getSession();
 		try {
 			System.out.println("querying all the managed entities...");
 			final Metamodel metamodel = session.getSessionFactory().getMetamodel();
@@ -43,6 +39,13 @@ public class Main {
 			}
 		} finally {
 			session.close();
-		}
+		}*/
+	}
+
+	private static String getProgrammersDay() {
+		Calendar cl = new GregorianCalendar(2018, 0, 1);
+		cl.add(Calendar.DAY_OF_YEAR, 255);
+
+		return String.format("%1$tY-%1$tm-%1$td", cl);
 	}
 }

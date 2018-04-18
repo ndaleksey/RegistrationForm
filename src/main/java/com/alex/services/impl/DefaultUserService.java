@@ -37,4 +37,9 @@ public class DefaultUserService implements UserService {
 	public void updateUser(User user) {
 		userFacade.updateUser(user);
 	}
+
+	@Override
+	public List<User> findUsersByName(String name) {
+		return userFacade.findUsersByName(name);
+	}
 }

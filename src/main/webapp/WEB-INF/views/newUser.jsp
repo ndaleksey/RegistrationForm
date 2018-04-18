@@ -14,22 +14,26 @@
 <body>
 
 <form:form method="post" modelAttribute="user" action="newUser">
-	<table>
-		<tr>
-			<td><b>Name:</b></td>
-			<td><form:input path="name"/></td>
-		</tr>
-		<tr>
-			<td><b>Age:</b></td>
-			<td><form:input path="age"/></td>
-		</tr>
-		<tr>
-			<td><b>Country:</b></td>
-			<td><form:input path="country"/></td>
-		</tr>
-	</table>
+	<fieldset>
+		<legend>User info:</legend>
+		<table>
+			<tr>
+				<td><b>Name:</b></td>
+				<td><form:input path="name"/></td>
+			</tr>
+			<tr>
+				<td><b>Age:</b></td>
+				<td><form:input path="age"/></td>
+			</tr>
+			<tr>
+				<td><b>Country:</b></td>
+				<td><form:input path="country"/></td>
+			</tr>
+		</table>
 
-	<form:button name="AddUser" value="Add">Add</form:button>
+		<form:button name="AddUser" value="Add">Add</form:button>
+
+	</fieldset>
 </form:form>
 </body>
 </html>

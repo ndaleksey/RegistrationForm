@@ -5,12 +5,13 @@ import com.alex.models.User;
 import com.alex.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by Shishkov A.V. on 09.04.18.
@@ -43,6 +44,11 @@ public class UserController {
 		return "newUser";
 	}
 
+	@RequestMapping(value = "/editUser", method = RequestMethod.POST)
+	public String handleInsertNewUser(HttpServletRequest request, HttpSession session){
+		return "redirect:/users";
+	}
+
 	@RequestMapping(value = "/newUser", method = RequestMethod.POST)
 	public String addNewUser(@ModelAttribute(name = "user") User user) {
 		userService.addUser(user);
@@ -51,20 +57,17 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/editUser", method = RequestMethod.GET)
-	public String editUser(@ModelAttribute(name = "currentUser") User user, ModelMap modelMap){
+	public String editUser(@ModelAttribute(name = "currentUser") User user, ModelMap modelMap, @RequestParam RequestParam param){
+
 		modelMap.addAttribute("user", user);
 		return "newUser";
 	}
 
-	@RequestMapping(value = "/editUser", method = RequestMethod.POST)
-	public String editUser(@ModelAttribute(name = "user") User user, BindingResult result, ModelMap modelMap){
-
-		if (result.hasErrors())
-			return "error";
-
-		modelMap.addAttribute("user", user);
-		userService.updateUser(user);
-
-		return "redirect:/users";
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public String searchUsers(Model model, HttpServletRequest request){
+		String name = request.getParameter("name");
+		model.addAttribute("name", name);
+		model.addAttribute(userService.findUsersByName(name));
+		return "users/search";
 	}
 }

@@ -32,11 +32,16 @@ public class WelcomeController {
 
 	@RequestMapping(value = "/welcome")
 	public String showWelcome() {
-		return "welcome";
+		return "users/search";
 	}
 
 	@RequestMapping(value = "/home")
 	public String showHome() {
-		return "welcome";
+		return "users/search";
+	}
+
+	@RequestMapping(value = "/error")
+	public String showError() {
+		return "error";
 	}
 }

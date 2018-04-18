@@ -15,4 +15,6 @@ public interface UserDAO {
 	void addUsers(List<User> users);
 
 	void updateUser(User user);
+
+	List<User> getUsersByName(String name);
 }

@@ -38,4 +38,9 @@ public class DefaultUserFacade implements UserFacade {
 	public void updateUser(User user) {
 		userDAO.updateUser(user);
 	}
+
+	@Override
+	public List<User> findUsersByName(String name) {
+		return userDAO.getUsersByName(name);
+	}
 }

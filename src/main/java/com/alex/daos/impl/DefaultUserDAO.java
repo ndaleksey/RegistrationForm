@@ -4,6 +4,7 @@ import com.alex.daos.UserDAO;
 import com.alex.models.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
@@ -45,6 +46,16 @@ public class DefaultUserDAO implements UserDAO {
 
 	@Override
 	public void updateUser(User user) {
+	}
 
+	@Override
+	public List<User> getUsersByName(String name) {
+		String sql = "from User";
+		boolean condition = name != null && !name.isEmpty();
+		Session session = sessionFactory.getCurrentSession();
+		Query query = session.createQuery(sql + (condition ? " where name = :name" : ""));
+		if (condition) query.setParameter("name", name);
+		List<User> result = query.list();
+		return result;
 	}
 }

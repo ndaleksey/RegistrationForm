@@ -15,4 +15,6 @@ public interface UserFacade {
 	void addUsers(List<User> users);
 
 	void updateUser(User user);
+
+	List<User> findUsersByName(String name);
 }
