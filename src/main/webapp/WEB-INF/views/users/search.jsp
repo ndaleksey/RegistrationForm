@@ -34,7 +34,6 @@
 	<table>
 		<thead>
 		<tr>
-			<%--<th width="180">Id</th>--%>
 			<th>Name</th>
 			<th>Age</th>
 			<th>Country</th>
@@ -44,9 +43,6 @@
 		<c:forEach items="${userList}" var="user">
 			<tr>
 				<td><a href="<c:url value="/users/detail/${user.id}"/>"/>${user.name}</td>
-
-				<%--<td><c:out value="${user.id}"/></td>--%>
-				<%--<td><c:out value="${user.name}"/></td>--%>
 				<td>${user.age}"</td>
 				<td>${user.country}"</td>
 			</tr>

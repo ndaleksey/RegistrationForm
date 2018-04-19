@@ -1,5 +1,6 @@
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.UUID;
 
 /**
  * Created by Shishkov A.V. on 12.04.18.
@@ -22,8 +23,16 @@ public class Main {
 		return ourSessionFactory.openSession();
 	}*/
 
+	private static String normalizeUuid(UUID id) {
+		return id.toString().toUpperCase().replace("-", "");
+	}
+
 	public static void main(final String[] args) throws Exception {
-		System.out.println(getProgrammersDay());
+//		System.out.println(getProgrammersDay());
+
+		UUID id = UUID.randomUUID();
+		System.out.println(id);
+		System.out.println(normalizeUuid(id));
 
 		/*final Session session = getSession();
 		try {

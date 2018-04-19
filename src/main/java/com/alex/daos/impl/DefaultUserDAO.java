@@ -2,6 +2,7 @@ package com.alex.daos.impl;
 
 import com.alex.daos.UserDAO;
 import com.alex.models.User;
+import com.alex.tools.Helper;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
@@ -63,9 +64,10 @@ public class DefaultUserDAO implements UserDAO {
 	@Override
 	public User getUserById(UUID userId) {
 		Session session = sessionFactory.getCurrentSession();
-		Query query = session.createQuery("from User where id = :id");
-		query.setParameter("id", userId);
+		Query query = session.createQuery("from User where cast(hex(id) AS string) like :id");
+		query.setParameter("id", Helper.normalizeUuid(userId) + "%");
 		List<User> users = query.list();
+
 		return users.size() > 0 ? users.get(0) : null;
 	}
 }
