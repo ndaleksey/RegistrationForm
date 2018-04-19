@@ -14,16 +14,19 @@
 	info
 </h1>
 <c:if test="${user ne null}">
+	<img src="/resources/img/users/${user.name}.jpg" align="left" width="640" height="480" alt="${user.name}"/>
 	<table>
-		<thead>
-		<th>Name</th>
-		<th>Age</th>
-		<th>Country</th>
-		</thead>
 		<tbody>
 		<tr>
+			<td><b>Name</b></td>
 			<td>${user.name}</td>
+		</tr>
+		<tr>
+			<td><b>Age</b></td>
 			<td>${user.age}</td>
+		</tr>
+		<tr>
+			<td><b>Country</b></td>
 			<td>${user.country}</td>
 		</tr>
 		</tbody>
