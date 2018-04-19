@@ -42,7 +42,7 @@ public class DefaultUserFacade implements UserFacade {
 
 	@Override
 	public List<User> findUsersByName(String name) {
-		return userDAO.getUsersByName(name);
+		throw new UnsupportedOperationException("Method is not working");
 	}
 
 	@Override

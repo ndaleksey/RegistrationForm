@@ -25,8 +25,9 @@
 	</tr>
 	</thead>
 	<tbody>
+
 	<c:forEach items="${users}" var="user">
-		<form:form method="get" action="/users/editUser" modelAttribute="currentUser">
+		<form:form method="get" action="/users/editUser">
 			<tr>
 				<td><c:out value="${user.id}"/></td>
 				<td><c:out value="${user.name}"/></td>

@@ -1,6 +1,7 @@
 package com.alex.services;
 
 import com.alex.models.User;
+import com.alex.models.UserSearchCriteria;
 
 import java.util.List;
 import java.util.UUID;
@@ -17,7 +18,7 @@ public interface UserService {
 
 	void updateUser(User user);
 
-	List<User> findUsersByName(String name);
+	List<User> findUsers(UserSearchCriteria criteria);
 
 	User findUserById(UUID userId);
 }

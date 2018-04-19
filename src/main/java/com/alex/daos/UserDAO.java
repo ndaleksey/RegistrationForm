@@ -1,6 +1,7 @@
 package com.alex.daos;
 
 import com.alex.models.User;
+import com.alex.models.UserSearchCriteria;
 
 import java.util.List;
 import java.util.UUID;
@@ -17,7 +18,7 @@ public interface UserDAO {
 
 	void updateUser(User user);
 
-	List<User> getUsersByName(String name);
+	List<User> getUsers(UserSearchCriteria criteria);
 
 	User getUserById(UUID userId);
 }

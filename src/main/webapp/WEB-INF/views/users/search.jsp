@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%--
   Created by IntelliJ IDEA.
   User: alexeyshishkov
@@ -15,20 +16,20 @@
 </head>
 <body>
 
-<form action="<c:url value="/users/search"/>" method="get">
+<form:form method="get" modelAttribute="userSearchCriteria">
 	<fieldset>
-		<legend>Search user</legend>
+		<legend><spring:message code="user.search_criteria"/></legend>
 		<table>
 			<tr>
-				<td><label for="name">Name</label></td>
-				<td><input id="name" name="name"/></td>
+				<td><form:label path="name">Name</form:label></td>
+				<td><form:input path="name"/></td>
 				<td>
 					<button>Search</button>
 				</td>
 			</tr>
 		</table>
 	</fieldset>
-</form>
+</form:form>
 
 <c:if test="${not empty userList}">
 	<table>
