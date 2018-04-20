@@ -16,15 +16,15 @@
 </head>
 <body>
 
-<form:form method="get" modelAttribute="userSearchCriteria">
+<form:form method="get" modelAttribute="userSearchCriteria" action="search">
 	<fieldset>
-		<legend><spring:message code="user.search_criteria"/></legend>
+		<legend><spring:message code="user.Search_criteria"/></legend>
 		<table>
 			<tr>
-				<td><form:label path="name">Name</form:label></td>
+				<td><form:label path="name"><spring:message code="user.Name"></spring:message></form:label></td>
 				<td><form:input path="name"/></td>
 				<td>
-					<button>Search</button>
+					<button><spring:message code="Search"/></button>
 				</td>
 			</tr>
 		</table>

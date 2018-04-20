@@ -69,8 +69,8 @@ public class UserController {
 		return "newUser";
 	}
 
-	@RequestMapping(value = "/search", method = {RequestMethod.GET})
-	public Collection<User> searchUsers(@ModelAttribute("userSearchCriteria") UserSearchCriteria criteria) {
+	@RequestMapping(value = "/search", method = RequestMethod.GET)
+	public Collection<User> searchUsers(@ModelAttribute(name = "userSearchCriteria") UserSearchCriteria criteria) {
 		return userService.findUsers(criteria);
 	}
 
