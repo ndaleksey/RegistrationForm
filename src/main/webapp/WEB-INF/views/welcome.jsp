@@ -13,6 +13,6 @@
 <body>
 <h1>Welcome page</h1>
 
-<a href="/users/search">Check for Registered Users</a>
+<a href="/cars/search">Check for cars</a>
 </body>
 </html>

@@ -2,7 +2,7 @@ package com.alex.daos.impl;
 
 import com.alex.daos.UserDAO;
 import com.alex.models.User;
-import com.alex.models.UserSearchCriteria;
+import com.alex.infrastructure.UserSearchCriteria;
 import com.alex.tools.Helper;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

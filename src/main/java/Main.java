@@ -30,9 +30,11 @@ public class Main {
 	public static void main(final String[] args) throws Exception {
 //		System.out.println(getProgrammersDay());
 
-		UUID id = UUID.randomUUID();
+		/*UUID id = UUID.randomUUID();
 		System.out.println(id);
-		System.out.println(normalizeUuid(id));
+		System.out.println(normalizeUuid(id));*/
+
+		System.out.println(String.format("Numbers: %1$s, %2$s, %3$s", 1, 2, 3));
 
 		/*final Session session = getSession();
 		try {

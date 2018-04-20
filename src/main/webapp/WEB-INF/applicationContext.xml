@@ -19,11 +19,12 @@
 	<alias name="defaultUserDAO" alias="userDAO"/>
 	<bean id="defaultUserDAO" class="com.alex.daos.impl.DefaultUserDAO"/>
 
-	<alias name="defaultUserFacade" alias="userFacade"/>
-	<bean id="defaultUserFacade" class="com.alex.facades.impl.DefaultUserFacade">
-		<property name="userDAO" ref="userDAO"/>
-	</bean>
-
 	<alias name="defaultUserService" alias="userService"/>
 	<bean id="defaultUserService" class="com.alex.services.impl.DefaultUserService"/>
+
+	<alias name="defaultCarDAO" alias="carDAO"/>
+	<bean id="defaultCarDAO" class="com.alex.daos.impl.DefaultCarDAO"/>
+
+	<alias name="defaultCarService" alias="carService"/>
+	<bean id="defaultCarService" class="com.alex.services.impl.DefaultCarService"/>
 </beans>

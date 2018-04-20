@@ -2,7 +2,7 @@ package com.alex.controllers;
 
 
 import com.alex.models.User;
-import com.alex.models.UserSearchCriteria;
+import com.alex.infrastructure.UserSearchCriteria;
 import com.alex.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

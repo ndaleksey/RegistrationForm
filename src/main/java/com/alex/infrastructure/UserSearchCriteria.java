@@ -1,4 +1,4 @@
-package com.alex.models;
+package com.alex.infrastructure;
 
 /**
  * Created by Shishkov A.V. on 19.04.18.

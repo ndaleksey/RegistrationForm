@@ -1,7 +1,7 @@
 package com.alex.services;
 
 import com.alex.models.User;
-import com.alex.models.UserSearchCriteria;
+import com.alex.infrastructure.UserSearchCriteria;
 
 import java.util.List;
 import java.util.UUID;

@@ -2,7 +2,7 @@ package com.alex.services.impl;
 
 import com.alex.daos.UserDAO;
 import com.alex.models.User;
-import com.alex.models.UserSearchCriteria;
+import com.alex.infrastructure.UserSearchCriteria;
 import com.alex.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 
