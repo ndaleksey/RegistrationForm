@@ -9,7 +9,6 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import javax.transaction.Transactional;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -19,7 +18,7 @@ import java.util.List;
 /**
  * Created by Shishkov A.V. on 20.04.18.
  */
-@Transactional
+//@Transactional
 @Repository
 public class DefaultCarDAO implements CarDAO {
 
@@ -35,11 +34,13 @@ public class DefaultCarDAO implements CarDAO {
 
 	@Override
 	public List<Car> getCars(CarSearchCriteria criteria) {
-		if (criteria == null) throw new IllegalArgumentException(System.getProperty("car.search.criteria_is_empty"));
+//		if (criteria == null) throw new IllegalArgumentException(System.getProperty("car.search.criteria_is_empty"));
+		if (criteria == null)
+			return getAllCars();
 
 		String name = criteria.getName();
 
-		if (name.isEmpty())
+		if (name == null || name.isEmpty())
 			return getAllCars();
 
 		Session session = sessionFactory.getCurrentSession();

@@ -6,6 +6,8 @@ import com.alex.models.Car;
 import com.alex.models.Engine;
 import com.alex.services.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.awt.*;
 import java.util.List;
@@ -13,9 +15,16 @@ import java.util.List;
 /**
  * Created by Shishkov A.V. on 20.04.18.
  */
+@Transactional
+@Service
 public class DefaultCarService implements CarService {
 	@Autowired
 	private CarDAO carDAO;
+
+	/*@PostConstruct
+	public void generateCars(){
+		generateDummyCars();
+	}*/
 
 	public Car[] getDummyCars() {
 		Car[] cars = new Car[]{

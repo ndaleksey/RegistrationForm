@@ -1,8 +1,8 @@
 package com.alex.daos.impl;
 
 import com.alex.daos.UserDAO;
-import com.alex.models.User;
 import com.alex.infrastructure.UserSearchCriteria;
+import com.alex.models.User;
 import com.alex.tools.Helper;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -11,14 +11,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.util.Assert;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.UUID;
 
 /**
  * Created by Shishkov A.V. on 09.04.18.
  */
-@Transactional
 @Repository
 public class DefaultUserDAO implements UserDAO {
 

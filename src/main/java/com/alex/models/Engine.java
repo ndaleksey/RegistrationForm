@@ -10,12 +10,21 @@ import java.util.UUID;
 @Entity
 @Table(name = "engine", catalog = "AutoShop")
 public class Engine {
+	private Long id;
 	private UUID vin;
 	private double power;
 	private double volume;
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	@Column(name = "vin")
 	public UUID getVin() {
 		return vin;

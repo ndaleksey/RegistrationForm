@@ -10,18 +10,19 @@ import java.util.UUID;
 @Entity
 @Table(name = "User", schema = "AutoShop")
 public class User {
-	private UUID id;
+	private Long id;
 	private Integer age;
 	private String country;
 	private String name;
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "id")
-	public UUID getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(UUID id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -56,11 +57,9 @@ public class User {
 	}
 
 	public User() {
-		id = UUID.randomUUID();
 	}
 
 	public User(String name, Integer age, String country) {
-		this();
 		this.age = age;
 		this.country = country;
 		this.name = name;

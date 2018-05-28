@@ -5,13 +5,17 @@ import com.alex.models.User;
 import com.alex.infrastructure.UserSearchCriteria;
 import com.alex.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.UUID;
 
 /**
  * Created by Shishkov A.V. on 09.04.18.
  */
+@Transactional
+@Service
 public class DefaultUserService implements UserService {
 	@Autowired
 	private UserDAO userDAO;

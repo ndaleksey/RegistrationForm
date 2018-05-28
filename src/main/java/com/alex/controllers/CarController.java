@@ -5,7 +5,10 @@ import com.alex.models.Car;
 import com.alex.services.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.annotation.PostConstruct;
@@ -22,12 +25,19 @@ public class CarController {
 	private CarService carService;
 
 	@PostConstruct
-	public void generateCars(){
+	private void init() {
 		carService.generateDummyCars();
 	}
 
-	@RequestMapping("/search")
-	public List<Car> findCars(@ModelAttribute("CarSearchCriteria") CarSearchCriteria criteria){
-		return carService.findCars(criteria);
+	@GetMapping(path = "/cars_list")
+	public String getAllCars(Model model){
+		List<Car> cars = carService.findCars(null);
+		model.addAttribute("cars", cars);
+		return "/cars/cars_list";
+	}
+
+	@PostMapping(path = "/cars_list")
+	public void findCar(@ModelAttribute("carSearchCriteria") CarSearchCriteria criteria) {
+
 	}
 }

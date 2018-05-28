@@ -14,5 +14,6 @@
 <body>
 	<%--<c:out value="${}"/>--%>
 <h1>Error</h1>
+<h5>${requestScope[javax.servlet.error.exception]}</h5>
 </body>
 </html>

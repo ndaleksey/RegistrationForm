@@ -1,5 +1,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: alexeyshishkov
@@ -11,6 +12,8 @@
 <html>
 <head>
 	<title><spring:message code="car.search.page.title"/></title>
+	<link href="<c:url value="/resources/css/bootstrap.min.css"/>" type="text/css" rel="stylesheet"/>
+	<link href="<c:url value="/resources/css/style.css"/>" type="text/css" rel="stylesheet"/>
 </head>
 <body>
 <form:form method="get">
@@ -28,5 +31,7 @@
 		</table>
 	</fieldset>
 </form:form>
+
+<script href="<c:url value="/resources/js/bootstrap.min.js"/> "/>
 </body>
 </html>

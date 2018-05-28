@@ -13,6 +13,6 @@
 <body>
 <h1>Welcome page</h1>
 
-<a href="/cars/search">Check for cars</a>
+<a href="/cars/cars_list">Check for cars</a>
 </body>
 </html>

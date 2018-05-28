@@ -10,6 +10,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "car", catalog = "AutoShop")
 public class Car {
+	private Long id;
 	private UUID vin;
 	private Color color;
 	private int year;
@@ -18,8 +19,16 @@ public class Car {
 	private double weight;
 	private double price;
 
+	public void setId(Long id) {
+		this.id = id;
+	}
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	public Long getId() {
+		return id;
+	}
+
 	@Column(name = "vin")
 	public UUID getVin() {
 		return vin;
